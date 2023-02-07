@@ -1,0 +1,39 @@
+{
+  "posts": [
+    {
+      "foodname": "sand",
+      "price": 20,
+      "id": 2
+    },
+    {
+      "foodname": "aloo",
+      "price": 45,
+      "id": 3
+    },
+    {
+      "foodname": "pasta2",
+      "price": 50,
+      "id": 4
+    },
+    {
+      "foodname": "gdg",
+      "price": 23,
+      "id": 5
+    },
+    {
+      "foodname": "hi",
+      "price": 14,
+      "id": 6
+    },
+    {
+      "foodname": "sameer",
+      "price": 12,
+      "profile": "signature.jpg",
+      "id": 7
+    }
+  ],
+  "comments": [],
+  "profile": {
+    "name": "typicode"
+  }
+}

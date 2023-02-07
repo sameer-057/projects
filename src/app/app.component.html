@@ -1,0 +1,77 @@
+<div class="container-fluid g-0">
+  <app-header></app-header>
+
+  <main class="black-border">
+
+    <div class="toolbar">
+
+      <div class="search-employees">
+        <input type="search" class="form-control" placeholder="Search item" (input)="searchFooditems(searchInput.value)" #searchInput>
+
+      </div>
+
+      <div class="add-employee">
+        <button type="button" class="ok btn btn-outline-success btn-lg" data-bs-toggle="modal"
+          data-bs-target="#exampleModal" #addFooditemButton>Add Food Items</button>
+      </div>
+    </div>
+
+
+    <div class="employees black-border">
+
+      <div class="row mt-5" *ngIf="fooditems.length==0">
+        <div class="col text-center">
+          <span class="text-secondary fs-2 fw-bold ">There are No Food Items Added!</span>
+        </div>
+      </div>
+
+      <div class="row mt-4" *ngFor="let fooditem of fooditemstodisplay; let ei=index;">
+        <div class="col">
+          <app-fooditems [fooditem]="fooditem" (onRemoveFooditem)="removeFooditem($event)" (onEditFooditem)="editFooditem($event)"></app-fooditems>
+        </div>
+      </div>
+
+    </div>
+  </main>
+</div>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add Food Item</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+
+        <form [formGroup]="foodItem">
+          <div class="row">
+            <div class="col">
+              <input type="text" class="form-control" placeholder="Food Name" formControlName="foodname">
+            </div>
+            <div class="col d-flex flex-row">
+              <span class="input-group-text p-2" id="basic-addon1">₹</span>
+              <input type="number" class="form-control p-2" placeholder="Price" formControlName="price">
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col">
+              <label for="formFile" class="form-label">Food Image</label>
+              <input class="form-control" type="file" id="formFile" #fileInput>
+
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="addFoodItem()">Add</button>
+      </div>
+    </div>
+  </div>
+</div>
